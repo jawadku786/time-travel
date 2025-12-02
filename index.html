@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Click Here to Change The time</h2>
+    <div>
+        <button id="b1" onclick="starttimer()">start</button>
+        <button id="b2" onclick="pausetimer()">pause</button>
+        <button id="b3" onclick="stoptimer()">stop</button>
+        <button id="b4" onclick="delay()">
+          delay
+        </button>
+    </div>
+    <div>
+        <p id="display">0</p>
+    </div>
+ <script>
+    let Count=0
+     let timer=null
+
+     function starttimer(){
+
+        if (timer!==null)return
+        timer=setInterval(() => {
+            Count++
+            document.getElementById('display').textContent=Count
+        }, 1000);
+     }
+
+     function pausetimer(){
+        clearInterval(timer)
+        timer=null
+
+     }
+
+     function stoptimer(){
+        clearInterval(timer)
+        timer=null
+        Count=0
+        document.getElementById('display').textContent=Count
+     }
+
+     function delay(){
+        if(timer!==null) return
+        document.getElementById('display').textContent="starting in two seconds"
+        setTimeout (()=>{
+            starttimer()
+        },2000)
+
+        
+     }
+ </script>
+
+</body>
+</html>
