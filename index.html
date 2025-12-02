@@ -4,56 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #box{
+         width:350px;height:350px;background:rgb(229, 126, 148);
+            font-size:40px;display:flex;justify-content:center;
+            align-items:center;cursor:pointer;
+            outline: none;
+             border-radius: 10px;
+        }
+
+        #b2{
+         width:350px;height:350px;background:rgb(87, 70, 171);
+            font-size:40px;display:flex;justify-content:center;
+            align-items:center;cursor:pointer;
+            outline: none;
+             border-radius: 10px;
+        }
+
+         #b3{
+         width:350px;height:350px;background:rgb(21, 233, 116);
+            font-size:40px;display:flex;justify-content:center;
+            align-items:center;cursor:pointer;
+            outline: none;
+            border-radius: 10px;
+        }
+
+        .container{
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 100px;
+        }
+
+        button{
+            height: 40px;
+            width: 400px;
+            background-color: aquamarine;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 80px;
+           margin-left: 560px;
+        }
+
+        button:hover{
+            opacity: 0.8;
+        }
+    </style>
 </head>
 <body>
-    <h2>Click Here to Change The time</h2>
-    <div>
-        <button id="b1" onclick="starttimer()">start</button>
-        <button id="b2" onclick="pausetimer()">pause</button>
-        <button id="b3" onclick="stoptimer()">stop</button>
-        <button id="b4" onclick="delay()">
-          delay
-        </button>
+      <h1 style="text-align: center; text-decoration: underline;">Click The Boxes to Increase Count</h1>
+    <div class="container">
+
+    <div id="box">
+        <h1 id="p1"  onclick="increases()">0</h1>
     </div>
-    <div>
-        <p id="display">0</p>
+
+
+    <div id="b2">
+         <h1 id="p2"  onclick="increases1()">0</h1>
     </div>
- <script>
-    let Count=0
-     let timer=null
 
-     function starttimer(){
 
-        if (timer!==null)return
-        timer=setInterval(() => {
-            Count++
-            document.getElementById('display').textContent=Count
-        }, 1000);
-     }
+    
+    <div id="b3" >
+         <h1 id="p3"  onclick="increases2()">0</h1>
+    </div>
 
-     function pausetimer(){
-        clearInterval(timer)
-        timer=null
+    </div>
 
-     }
+    <button id="button" onclick="reset()">Reset</button>
 
-     function stoptimer(){
-        clearInterval(timer)
-        timer=null
-        Count=0
-        document.getElementById('display').textContent=Count
-     }
-
-     function delay(){
-        if(timer!==null) return
-        document.getElementById('display').textContent="starting in two seconds"
-        setTimeout (()=>{
-            starttimer()
-        },2000)
-
+    <script>
         
-     }
- </script>
+      let value=0;
+              function increases(){
+   document.getElementById('p1').innerHTML=value++
+              }
 
+                  function increases1(){
+                
+   document.getElementById('p2').innerHTML=value++
+              }
+
+
+                function increases2(){
+                
+   document.getElementById('p3').innerHTML=value++
+              }
+
+
+              
+              function reset(){
+                console.log("hi");
+                
+                value=0
+                document.getElementById('p1').innerHTML= value
+                document.getElementById('p2').innerHTML= value
+                document.getElementById('p3').innerHTML= value
+              }
+    </script>
 </body>
 </html>
